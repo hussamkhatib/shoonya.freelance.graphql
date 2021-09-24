@@ -1,14 +1,24 @@
 import { User } from "./models.js";
+import countries from "./data/countries.js";
 
 const resolvers = {
   Query: {
     user(_, args) {
-      const { _id } = args
-      return User.findById({ 
-        _id 
-      })
+      const { _id,filter } = args
+      const shouldApplyFilters = filter !== undefined;
+      if (!shouldApplyFilters) {
+        return User.findById({ 
+          _id 
+        })
+            }
     },
+    countries(){
+      console.log(countries) // returns proper data 
+      return  countries ;
+    }
   },
+
+
   
   
   Mutation: {
