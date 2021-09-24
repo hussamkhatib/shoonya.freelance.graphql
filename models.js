@@ -51,7 +51,7 @@ const UserSchema = new Schema({
     required: true
   },
   countriesICanWork : {
-    type : Object,
+    type : Array,
     required: true
   }
 });
